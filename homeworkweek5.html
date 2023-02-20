@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Weather App</title>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+
+  <body>
+    <div class="container mt-5">
+      <div class="card border-info">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-4">
+              <div class="row">
+                <div class="col-9">
+                  <form id="search-form">
+                    <div class="row">
+                      <div class="col-8">
+                        <input
+                          type="search"
+                          placeholder="Enter City Name"
+                          class="form-control border-info shadow-sm"
+                          autofocus
+                          id="search-input"
+                        />
+                      </div>
+                      <div class="col-4">
+                        <input
+                          type="submit"
+                          value="Search"
+                          class="form-control btn btn-primary p-1 shadow"
+                        />
+                      </div>             
+                    </div>
+                 </form> 
+                </div>
+                <div class="col-3">
+                  <div class="col">
+                    <input
+                      type="submit"
+                      value="Current"
+                      class="form-control btn btn-success p-1 shadow"
+                      id="button"
+                    />
+                  </div>
+                </div>
+              </div>           
+              <div class="row">
+                <div class="col-5">
+                  <div class="row">
+                    <div class="col-12 text-center">
+                      <img
+                        src="images/sun.png"
+                        alt="sun picture"
+                        class="w-100 h-100"
+                      />  
+                    </div>
+                    <div class="col-12 text-center">
+                      <p class="text-danger fw-bold" id="description"></p>
+                    </div>
+                    <div class="col-12 text-center">
+                      <p class="text-danger fw-bold" id="maxTemp"></p>
+                    </div>
+                    <div class="col-12 text-center">
+                      <p class="text-primary fw-bold" id="minTemp"></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-7">
+                  <div class="col-12 text-center mb-2 mt-2">
+                    <span class="content-color temperature" id="temperature"
+                      ></span
+                    >
+                    <span class="units">
+                      <a href="#" id="celsius-link"> °C </a>|
+                      <a href="#" id="fahrenheit-link">°F</a></span
+                    >
+                  </div>
+                  <div class="col-12 text-center mb-2">
+                    <img
+                      src="images/precipitation.png"
+                      alt="precipitation picture"
+                      class="w-25 h-25"
+                    />
+                    <span class="content-color fw-bold" id="precipitation">%</span>
+                  </div>
+                  <div class="col-12 text-center mb-2">
+                    <img
+                      src="images/humidity.png"
+                      alt="humidity picture"
+                      class="w-25 h-25"
+                    />
+                    <span class="content-color fw-bold" id="humidity">%</span>
+                  </div>
+                  <div class="col-12 text-center">
+                    <img
+                      src="images/wind.png"
+                      alt="wind picture"
+                      class="w-25 h-25"
+                    />
+                    <span class="content-color fw-bold" id="wind">km/h</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-8">
+              <div class="row justify-content-center">
+                <div class="col-3 text-center">
+                  <h3 class="content-color fw-bold" id="current-city-search">
+                  </h3>
+                </div>
+                <div class="col-3 text-center">
+                  <h3 class="content-color fw-bold" id="currentDay"></h3>
+                </div>
+                <div class="col-3 text-center">
+                  <h3 class="content-color fw-bold" id="currentTime"></h3>
+                </div>
+              </div>
+              <div class="row">
+                <div class="card-group">
+                  <div class="card card-bg border-info">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-2 text-center">
+                          <div class="card text-center border-0 card-bg">
+                            <div class="card-body">
+                              <h5 class="card-title content-color">Sat</h5>
+                              <img
+                                src="images/sunCloud.png"
+                                alt="partly cloudy picture"
+                                class="w-100 h-100"
+                              />
+                              <p class="card-text text-danger fw-bold mt-3">
+                                23 °C
+                              </p>
+                              <p class="card-text text-primary fw-bold">3 °C</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-2 text-center">
+                          <div class="card text-center border-0 card-bg">
+                            <div class="card-body">
+                              <h5 class="card-title content-color">Sun</h5>
+                              <img
+                                src="images/sunRain.png"
+                                alt="partly cloudy picture"
+                                class="w-100 h-100"
+                              />
+                              <p class="card-text text-danger fw-bold mt-3">
+                                20 °C
+                              </p>
+                              <p class="card-text text-primary fw-bold">2 °C</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-2 text-center">
+                          <div class="card text-center border-0 card-bg">
+                            <div class="card-body">
+                              <h5 class="card-title content-color">Mon</h5>
+                              <img
+                                src="images/sun.png"
+                                alt="partly cloudy picture"
+                                class="w-100 h-100"
+                              />
+                              <p class="card-text text-danger fw-bold mt-3">
+                                27 °C
+                              </p>
+                              <p class="card-text text-primary fw-bold">5 °C</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-2 text-center">
+                          <div class="card text-center border-0 card-bg">
+                            <div class="card-body">
+                              <h5 class="card-title content-color">Tue</h5>
+                              <img
+                                src="images/windCloud.png"
+                                alt="partly cloudy picture"
+                                class="w-100 h-100"
+                              />
+                              <p class="card-text text-danger fw-bold mt-3">
+                                23 °C
+                              </p>
+                              <p class="card-text text-primary fw-bold">3 °C</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-2 text-center">
+                          <div class="card text-center border-0 card-bg">
+                            <div class="card-body">
+                              <h5 class="card-title content-color">Wed</h5>
+                              <img
+                                src="images/sunCloud.png"
+                                alt="partly cloudy picture"
+                                class="w-100 h-100"
+                              />
+                              <p class="card-text text-danger fw-bold mt-3">
+                                25 °C
+                              </p>
+                              <p class="card-text text-primary fw-bold">6 °C</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-2 text-center">
+                          <div class="card text-center border-0 card-bg">
+                            <div class="card-body">
+                              <h5 class="card-title content-color">Thu</h5>
+                              <img
+                                src="images/sunRain.png"
+                                alt="partly cloudy picture"
+                                class="w-100 h-100"
+                              />
+                              <p class="card-text text-danger fw-bold mt-3">
+                                21 °C
+                              </p>
+                              <p class="card-text text-primary fw-bold">3 °C</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="src/index.js"></script>
+  </body>
+</html>

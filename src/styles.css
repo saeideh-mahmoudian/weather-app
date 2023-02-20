@@ -1,0 +1,26 @@
+body {
+  font-family: "Roboto Slab", serif;
+}
+
+.card-bg {
+  background-color: #eaf7fd;
+}
+
+.content-color {
+  color: #42a5f5;
+}
+
+.temperature {
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.units {
+  position: relative;
+  top: -34px;
+}
+
+#search-form {
+  margin-bottom: 20px;
+}
