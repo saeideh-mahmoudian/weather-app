@@ -21,52 +21,42 @@
 
   <body>
     <div class="container mt-5">
+      <div class="weather-app">
       <div class="card border-info">
         <div class="card-body">
           <div class="row">
             <div class="col-4">
-              <div class="row">
-                <div class="col-9">
-                  <form id="search-form">
-                    <div class="row">
-                      <div class="col-8">
-                        <input
-                          type="search"
-                          placeholder="Enter City Name"
-                          class="form-control border-info shadow-sm"
-                          autofocus
-                          id="search-input"
-                        />
-                      </div>
-                      <div class="col-4">
-                        <input
-                          type="submit"
-                          value="Search"
-                          class="form-control btn btn-primary p-1 shadow"
-                        />
-                      </div>             
-                    </div>
-                 </form> 
-                </div>
-                <div class="col-3">
-                  <div class="col">
+              <form id="search-form">
+                <div class="row">
+                  <div class="col-8">
                     <input
-                      type="submit"
-                      value="Current"
-                      class="form-control btn btn-success p-1 shadow"
-                      id="current-location-button"
+                      type="search"
+                      placeholder="Enter City Name"
+                      class="form-control border-info shadow-sm"
+                      autofocus
+                      autocomplete="off"
+                      id="search-input"
                     />
                   </div>
+                  <div class="col-4">
+                    <input
+                      type="submit"
+                      value="Search"
+                      class="form-control btn btn-primary w-100 shadow"
+                      id="submit"
+                    />
+                  </div>             
                 </div>
-              </div>           
+              </form>             
               <div class="row">
                 <div class="col-5">
                   <div class="row">
                     <div class="col-12 text-center">
                       <img
-                        src="images/sun.png"
+                        src=""
                         alt="sun picture"
                         class="w-100 h-100"
+                        id="icon"
                       />  
                     </div>
                     <div class="col-12 text-center">
@@ -86,17 +76,9 @@
                       ></span
                     >
                     <span class="units">
-                      <a href="#" id="celsius-link"> °C </a>|
+                      <a href="#" id="celsius-link" class="active"> °C </a>|
                       <a href="#" id="fahrenheit-link">°F</a></span
                     >
-                  </div>
-                  <div class="col-12 text-center mb-2">
-                    <img
-                      src="images/precipitation.png"
-                      alt="precipitation picture"
-                      class="w-25 h-25"
-                    />
-                    <span class="content-color fw-bold" id="precipitation">%</span>
                   </div>
                   <div class="col-12 text-center mb-2">
                     <img
@@ -119,14 +101,14 @@
             </div>
             <div class="col-8">
               <div class="row justify-content-center">
-                <div class="col-3 text-center">
+                <div class="col-4 text-center">
                   <h3 class="content-color fw-bold" id="current-city-search">
                   </h3>
                 </div>
-                <div class="col-3 text-center">
+                <div class="col-4 text-center">
                   <h3 class="content-color fw-bold" id="currentDay"></h3>
                 </div>
-                <div class="col-3 text-center">
+                <div class="col-4 text-center">
                   <h3 class="content-color fw-bold" id="currentTime"></h3>
                 </div>
               </div>
@@ -240,9 +222,10 @@
           </div>
         </div>
       </div>
-      <div class="font-size-sm">
+      <div id="footer">
         <a href="https://github.com/saeideh-mahmoudian/weather-app.git" target="_blank">Open-source code</a>
         by Saeideh Mahmoudian
+      </div>
       </div>
     </div>
     <script

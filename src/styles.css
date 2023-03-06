@@ -1,5 +1,10 @@
 body {
-  font-family: "Roboto Slab", serif;
+  font-family: arial, sans-serif;
+}
+
+.weather-app{
+  max-width: 1000px;
+  margin: 30px auto;
 }
 
 .card-bg {
@@ -8,6 +13,10 @@ body {
 
 .content-color {
   color: #42a5f5;
+}
+
+#submit{
+  font-size: 15px;
 }
 
 .temperature {
@@ -23,4 +32,15 @@ body {
 
 #search-form {
   margin-bottom: 20px;
+}
+
+.active{
+  color: black;
+  cursor: default;
+  text-decoration: none;
+}
+
+#footer{
+  font-size: 13px;
+  font-weight: 400;
 }
