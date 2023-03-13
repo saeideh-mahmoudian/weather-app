@@ -53,6 +53,8 @@ body {
 #footer{
   font-size: 13px;
   font-weight: 400;
+  margin-left: 10px;
+  text-decoration: none;
 }
 
 .forecast-weather-icon {
